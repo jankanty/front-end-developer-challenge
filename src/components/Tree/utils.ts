@@ -36,37 +36,37 @@ const initializer = (): Store => {
     branches: [
       [
         {
-          active: xxx.stack,
+          active: !!xxx.stack,
           id: 'stack',
         },
         {
-          active: xxx.skull,
+          active: !!xxx.skull,
           id: 'skull',
         },
         {
-          active: xxx.lightning,
+          active: !!xxx.lightning,
           id: 'lightning',
         },
         {
-          active: xxx.scuba,
+          active: !!xxx.scuba,
           id: 'scuba',
         },
       ],
       [
         {
-          active: xxx.ship,
+          active: !!xxx.ship,
           id: 'ship',
         },
         {
-          active: xxx.crown,
+          active: !!xxx.crown,
           id: 'crown',
         },
         {
-          active: xxx.cake,
+          active: !!xxx.cake,
           id: 'cake',
         },
         {
-          active: xxx.cutlery,
+          active: !!xxx.cutlery,
           id: 'cutlery',
         },
       ],
