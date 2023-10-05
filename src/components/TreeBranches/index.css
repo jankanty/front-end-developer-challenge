@@ -1,0 +1,13 @@
+.tree__branches {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+
+
+@media (max-width: 1080px) {
+  .tree__branches {
+    flex-direction: row;
+  }
+}

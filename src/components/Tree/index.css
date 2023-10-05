@@ -1,0 +1,15 @@
+.tree {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+  padding: 100px 0;
+}
+
+
+
+@media (max-width: 1080px) {
+  .tree {
+    flex-direction: column;
+  }
+}

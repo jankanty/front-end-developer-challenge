@@ -1,0 +1,30 @@
+.tree__branch {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+}
+
+.tree__branch > span {
+  font-size: 15px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.tree__branch > div {
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+}
+
+
+
+@media (max-width: 1080px) {
+  .tree__branch {
+    flex-direction: column;
+  }
+
+  .tree__branch > div {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,48 @@
+.talent {
+  background: url('../../../assets/talent-icons-sprite.png') 0 50px;
+  border: 5px solid #666;
+  cursor: pointer;
+  height: 60px;
+  width: 60px;
+}
+
+.talent:hover {
+  background-position-y: 0;
+}
+
+.talent--active {
+  background-position-y: 0;
+  border-color: #69f;
+}
+
+.talent__stack {
+  background-position-x: 0;
+}
+
+.talent__skull {
+  background-position-x: 50px;
+}
+
+.talent__lightning {
+  background-position-x: 100px;
+}
+
+.talent__scuba {
+  background-position-x: 150px;
+}
+
+.talent__ship {
+  background-position-x: 200px;
+}
+
+.talent__crown {
+  background-position-x: 250px;
+}
+
+.talent__cake {
+  background-position-x: 300px;
+}
+
+.talent__cutlery {
+  background-position-x: 350px;
+}
