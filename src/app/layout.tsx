@@ -1,5 +1,7 @@
 import './layout.css';
 
+import { Metadata } from 'next'
+
 
 
 interface LayoutProps {
@@ -7,6 +9,10 @@ interface LayoutProps {
 }
 
 
+
+export const metadata: Metadata = {
+  title: 'TitanStar Legends',
+}
 
 const Layout = ({ children }: LayoutProps) => {
   return (
