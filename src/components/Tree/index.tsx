@@ -1,6 +1,7 @@
 import './index.css';
 
 import { Talent, TreeBranch, TreeBranches, TreeCounter } from '@/components';
+import { MAX_TALENTS_ACTIVE } from '@/consts';
 
 import { useStore } from './utils';
 
@@ -31,7 +32,7 @@ export const Tree = () => {
           ))
         }
       </TreeBranches>
-      <TreeCounter>{store.counter} / 6</TreeCounter>
+      <TreeCounter>{store.counter} / {MAX_TALENTS_ACTIVE}</TreeCounter>
     </div>
   );
 };

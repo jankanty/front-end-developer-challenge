@@ -1,5 +1,7 @@
 import { useReducer } from 'react';
 
+import { MAX_TALENTS_ACTIVE } from '@/consts';
+
 
 
 interface Store {
@@ -71,7 +73,7 @@ const reducer = (state: Store, action: StoreAction): Store => {
           return action;
         }
 
-        if (action.active === true && !branch.some((t, i) => t.active === false && i < index) && state.counter < 6) {
+        if (action.active === true && !branch.some((t, i) => t.active === false && i < index) && state.counter < MAX_TALENTS_ACTIVE) {
           counter++;
 
           return action;
