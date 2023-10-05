@@ -18,46 +18,56 @@ interface StoreAction {
 
 
 const initializer = (): Store => {
+  const params = new URLSearchParams(window.location.search);
+
+  const xxx = (params.get('talents') ?? '').split('--').reduce<Record<string, boolean>>((acc, id) => {
+    if (id) {
+      acc[id] = true;
+    }
+
+    return acc;
+  }, {});
+
   return {
     branches: [
       [
         {
-          active: true,
+          active: xxx.stack,
           id: 'stack',
         },
         {
-          active: false,
+          active: xxx.skull,
           id: 'skull',
         },
         {
-          active: false,
+          active: xxx.lightning,
           id: 'lightning',
         },
         {
-          active: false,
+          active: xxx.scuba,
           id: 'scuba',
         },
       ],
       [
         {
-          active: true,
+          active: xxx.ship,
           id: 'ship',
         },
         {
-          active: true,
+          active: xxx.crown,
           id: 'crown',
         },
         {
-          active: false,
+          active: xxx.cake,
           id: 'cake',
         },
         {
-          active: false,
+          active: xxx.cutlery,
           id: 'cutlery',
         },
       ],
     ],
-    counter: 3,
+    counter: Object.keys(xxx).length,
   };
 };
 
@@ -85,6 +95,12 @@ const reducer = (state: Store, action: StoreAction): Store => {
       return talent;
     });
   });
+
+  const params = new URLSearchParams(window.location.search);
+
+  params.set('talents', branches.reduce((acc, branch) => acc + branch.reduce((acc, talent) => talent.active ? acc + talent.id + '--' : acc, ''), ''));
+
+  window.history.pushState(null, '', '?' + params.toString());
 
   return {
     branches,
