@@ -18,60 +18,46 @@ interface StoreAction {
 
 
 const initializer = (): Store => {
-  let xxx: Record<string, boolean> = {};
-
-  if (typeof window !== 'undefined') {
-    const params = new URLSearchParams(window.location.search);
-
-    xxx = (params.get('talents') ?? '').split('--').reduce<Record<string, boolean>>((acc, id) => {
-      if (id) {
-        acc[id] = true;
-      }
-
-      return acc;
-    }, {});
-  }
-
   return {
     branches: [
       [
         {
-          active: !!xxx.stack,
+          active: false,
           id: 'stack',
         },
         {
-          active: !!xxx.skull,
+          active: false,
           id: 'skull',
         },
         {
-          active: !!xxx.lightning,
+          active: false,
           id: 'lightning',
         },
         {
-          active: !!xxx.scuba,
+          active: false,
           id: 'scuba',
         },
       ],
       [
         {
-          active: !!xxx.ship,
+          active: false,
           id: 'ship',
         },
         {
-          active: !!xxx.crown,
+          active: false,
           id: 'crown',
         },
         {
-          active: !!xxx.cake,
+          active: false,
           id: 'cake',
         },
         {
-          active: !!xxx.cutlery,
+          active: false,
           id: 'cutlery',
         },
       ],
     ],
-    counter: Object.keys(xxx).length,
+    counter: 0,
   };
 };
 
@@ -99,12 +85,6 @@ const reducer = (state: Store, action: StoreAction): Store => {
       return talent;
     });
   });
-
-  const params = new URLSearchParams(window.location.search);
-
-  params.set('talents', branches.reduce((acc, branch) => acc + branch.reduce((acc, talent) => talent.active ? acc + talent.id + '--' : acc, ''), ''));
-
-  window.history.pushState(null, '', '?' + params.toString());
 
   return {
     branches,
