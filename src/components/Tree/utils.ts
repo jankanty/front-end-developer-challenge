@@ -18,15 +18,19 @@ interface StoreAction {
 
 
 const initializer = (): Store => {
-  const params = new URLSearchParams(window.location.search);
+  let xxx: Record<string, boolean> = {};
 
-  const xxx = (params.get('talents') ?? '').split('--').reduce<Record<string, boolean>>((acc, id) => {
-    if (id) {
-      acc[id] = true;
-    }
+  if (typeof window !== 'undefined') {
+    const params = new URLSearchParams(window.location.search);
 
-    return acc;
-  }, {});
+    xxx = (params.get('talents') ?? '').split('--').reduce<Record<string, boolean>>((acc, id) => {
+      if (id) {
+        acc[id] = true;
+      }
+
+      return acc;
+    }, {});
+  }
 
   return {
     branches: [
